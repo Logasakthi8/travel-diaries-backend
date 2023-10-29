@@ -11,6 +11,12 @@ dotenv.config();
 // middlewares
 app.use(cors());
 app.use(express.json());
+
+app.get("/",(req,res) => {
+    res.setHeader("Access-Control-Allow-credentials","true");
+    res.send("API is running");
+});
+
 app.use("/user", userRouter);
 app.use("/posts", postRouter);
 
